@@ -1,0 +1,74 @@
+System requirement:
+===================
+AHRM needs an environment which includes:
+
+1. Python 
+   It needs python 2.5 or heigher
+   See http://www.python.org/download/
+   
+2. Django 
+   We need to install Django framework in order to deploy application.
+   we should choose the right version of Django which supports the python version.
+   See http://www.djangoproject.com/download/
+
+3. PIL 
+   Application needs to install Python Image Library (PIL).
+   Please choose the right version of PIL which supports the python version.
+   See http://www.pythonware.com/products/pil/
+
+4. PISA
+   Application needs to install PISA which will be used to generate the PDF report
+   See http://pypi.python.org/pypi/pisa/
+
+5. ReportLab ToolKit 
+   This is the dependancy library PISA
+   See http://www.reportlab.org/downloads.html
+   
+6. html5lib
+   This is the dependancy library PISA
+   See http://pypi.python.org/pypi/html5lib/0.10
+   
+7. PyPDF
+   This is the dependancy library PISA
+   See http://pypi.python.org/pypi/pyPdf/1.10
+
+8. django_tinymce
+   In order to allow the user to edit their own welcome message, we used the django_tinymce.
+   See http://code.google.com/p/django-tinymce
+
+
+
+Configuration
+=============
+For this application, there is only one important cofiguration which relates to database configuration.
+You can do database configuration in project_root/ahrm/settings.py
+
+
+
+Database Initialization
+=======================
+If you do not have yet database, you can goto project_root/ahrm
+And run the following Django command line: 
+    python manage.py syncdb
+
+This command line will create data base schema and sample data.
+It will also ask you to create a super user. This user will be used to login our application. 
+ 
+ 
+Deployment
+==========
+Compiling messages for multi-languages, go to project_root/ahrm run the following django command line:
+    django-admin.py compilemessages
+go to project_root/ahrm, and run the following django command line:
+    python manage.py runserver [host:port]
+
+If we do not specific host and port, it will listen to only the default url http://localhost:8000,
+otherwide, it will listen to url http://host:port
+or you can do the quick deployment by running the following file:
+   Windows  --> run file run.bat
+   Linux --> run file run.sh
+   
+For more about files run.(bat or sh)  you can change host name or port number by editing directly this run file.
+
+To run application, you just use the above url to run with web browser.
+

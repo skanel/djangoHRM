@@ -1,0 +1,75 @@
+<br/>
+{% load i18n %}
+{% if status %}
+	<form enctype="multipart/form-data" method="POST" action="/employee/attachment/save">
+		<font color="red"><b>
+		  {% if error_name %}
+		     <label for="id_name">Name</label>: This field is required.<br/>
+		  {% endif %}
+		  {% if form.errors %}
+		     {% for field in form %}
+		        {% if field.errors %}
+		           {% for error in  field.errors %}
+		            {{ field.label_tag }}: {{ error }}<br/>
+		           {% endfor %}
+		        {% endif %}
+		     {% endfor %}
+		  {% endif %}
+		</b></font>
+		<table class="ahrmtable" width="100%">
+			<thead>
+				<th align="left" colspan="4">{% trans 'Employee Attachment' %}</th>
+			</thead>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+			<tr>
+				<td>{% trans 'Name' %}</td>
+				<td>{{form.name}}</td>
+			</tr>
+			<tr>
+				<td valign="top">{% trans 'Description' %}</td>
+				<td >{{form.description}}</td>
+			</tr>
+			<tr>
+				<td>{% trans 'Content' %}</td>
+				<td >{{form.content}}</td>
+			</tr>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+		</table>
+		<input type="hidden" name="atch_id" value="{{atch_id}}"/>
+		<input type="submit" value="{% trans 'Save' %}"/>
+		<input type="button" value="{% trans 'Back' %}" onclick="process('/employee/attachment')"/>
+	</form>
+{% else %}
+	{% if attachments %}
+		<table class="ahrmtablelist" border=1>
+			<thead>
+				<th>{% trans 'Name' %}</th>
+				<th>{% trans 'Description' %}</th>
+				<th>{% trans 'extension' %}</th>
+				<th>{% trans 'Content' %}</th>
+				<th>{% trans 'Delete' %}</th>
+				
+			</thead>
+			{% for attachment in attachments %}
+				<tr>
+					<td><a href="/employee/attachment/edit/{{attachment.id}}">{{attachment.name}}</a></td>
+					<td>{{attachment.description}}</td>
+					<td>{{attachment.get_extension}}</td>
+					<td><a href="/site_media/{{attachment.content}}">{{attachment.get_file_name}}</a></td>
+					<td align="center"><a href="/employee/attachment/delete/{{attachment.id}}" onclick="return before_delete('{% trans 'attachment file' %} {{attachment.get_file_name}}')"><img src="/site_media/images/delete.gif" border="0"/></a></td>
+				</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<font color="red"><h4>{% trans 'There is no attachment file for this employee' %}</h4></font>
+	{% endif %}
+		<div style="height: 15px"></div>
+		<form action="/employee/attachment/new" method="POST">
+			<input type="submit" value="{% trans 'New' %}"/> 
+		</form>
+{% endif %}
+<br/>

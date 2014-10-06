@@ -1,0 +1,86 @@
+{% load i18n %}
+<br/>
+<form enctype="multipart/form-data"  action="/employee/new" method="POST">
+	{% if nation_error %}
+		{% autoescape off %}
+			{{nation_error}}
+		{% endautoescape %}
+	{% endif %}
+	<font color="red"><b>
+	  {% if error_name %}
+	     <label for="id_name">Name</label>: This field is required.<br/>
+	  {% endif %}
+	  {% if form.errors %}
+	     {% for field in form %}
+	        {% if field.errors %}
+	           {% for error in  field.errors %}
+	           		{{ field.label_tag }} : {{ error }}<br/>
+	           {% endfor %}
+	        {% endif %}
+	     {% endfor %}
+	  {% endif %}
+	</b></font>
+   <table class="ahrmtable" width="100%">
+       <thead><th colspan="4" align="left"><h4>{% trans 'Personal Information' %}</h4></th></thead>
+        <tr><td>&nbsp;</td></tr>
+       <tr><td>{% trans 'First Name' %}:</td><td>{{form.fname}}</td>
+           <td>{% trans 'Last Name'%} : </td><td> {{form.lname}}</td>
+       </tr>
+       
+       <tr><td>{% trans 'Birthday' %}:</td><td>{{form.birthday}}</td>
+           <td>{% trans 'Marital Status' %}: </td><td> {{form.marital_status}}</td>
+       </tr>
+       
+       <tr><td>{% trans 'Gender' %}:</td><td>{{form.gender}}</td>
+           <td>{% trans 'Photo' %}: </td><td> {{form.photo}}</td>
+       </tr>
+        <tr>
+        	<td>{% trans 'Nationality' %}:</td>
+        	 
+        	<td>
+        		<select name="emp_nation" width="30px">
+					<option value="">--------------&nbsp;</option>
+					{% for country in country %}
+						{% ifequal country.nationality nation%}
+							<option value="{{ country.id}}" selected> {{ country.nationality }}</option>
+						{% else %}
+							<option value="{{ country.id }}"> {{ country.nationality }}</option>
+						{% endifequal %}
+					{% endfor %}
+				</select>  
+			</td> 
+        	<!-- <td>{{form.nationality}} {{form.nationality.errors}}</td> -->
+            <td>{% trans 'Driver licence' %}: </td><td> {{form.driver_licence}} </td>
+       </tr>
+       
+       <tr>
+       	   <td>{% trans 'Date joined' %}:</td><td>{{form.date_joined}}</td>
+           <td>{% trans 'Active' %}:</td><td>{{form.active}}</td>
+       </tr>
+       <tr><td>&nbsp;</td></tr>
+   </table>
+   <br/>
+   <table class="ahrmtable">
+        <thead><th colspan="4" align="left"><h4>{% trans 'Contact Information' %}</h4></th></thead>
+        <tr><td>&nbsp;</td></tr>
+        
+        <tr><td>{% trans 'Street' %}:</td><td>{{form.street}} </td>
+            <td>{% trans 'City' %}: </td><td> {{form.city}}</td>
+        </tr>
+        
+        <tr><td>{% trans 'Zip code' %}:</td><td>{{form.zip_code}} </td>
+            <td>{% trans 'Phone' %}: </td><td> {{form.phone}}</td>
+        </tr>
+        
+        <tr><td>{% trans 'E-mail' %}:</td><td>{{form.mail}} </td>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+        	<td colspan="4">
+        		&nbsp;
+        	</td>
+        </tr>
+  </table><br>
+  <input type="hidden" name="emp_id" value="{{emp_id}}"/>
+  <input type="submit" value="{%trans 'Save' %}"/><br/><br/>
+</form>

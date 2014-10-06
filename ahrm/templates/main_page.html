@@ -1,0 +1,47 @@
+{% extends "master.html" %}
+{% load ahrm_tags %}
+
+{% block title %}AHRM - Main Page{% endblock %}
+
+{% block content %}
+{% load i18n %}
+<br />
+<table width="100%" align="center">
+    <tr>
+        <td>
+              {% if company.banner %}
+                  <img src="/site_media/{{company.banner}}" width="704" height="170" alt="Human Resource Management" />
+              {% else %}
+                  <img src="/site_media/images/hr.jpg" width="704" height="170" alt="Human Resource Management" />
+              {% endif %}
+        </td>       
+    </tr>
+    <tr>
+       <td>
+       
+            {% if company.welcome_message %}
+                  {% autoescape off %}
+                      {{company.welcome_message}}
+                  {% endautoescape%}
+              {% endif %}
+       
+       </td>
+    </tr>
+	</table>
+  <p>{% trans 'If you have any feedback from our software, please kindly contact us by the following address'%}:</p>
+    <table width="100%">
+    <tr>
+    <td width="70px">
+    </td>
+    <td>
+	<ul>
+	  <li>{% trans 'Address' %} : Nº254, {% trans 'IOC Building' %}, {% trans 'Monivong Blvd'%}, {% trans 'Phnom Penh' %}, {% trans 'Cambodia' %}</li>	  
+	  <li>{% trans 'Tel' %}     : +(855) 23 221 320</li>
+	  <li>{% trans 'E-mail' %}   : <a href="mailto:exalog@allweb.com.kh">exalog@allweb.com.kh</a> </li>
+	  <li>{% trans 'Website' %} : <a href="http://www.allweb.com.kh">www.allweb.com.kh</a> </li>	  
+	</ul>
+	</td>
+	</tr>	
+	</table>
+<br/>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% load i18n %}
+<br/>
+{%if status%}
+    <form method="POST" action ="/employee/experience/save">
+    {% if form.errors %}
+        {% for field in form %}
+            {% if field.errors %}
+               {% for error in  field.errors %}
+                   <font color="red">  {{ field.label_tag }}: {{ error }}<br/></font>
+               {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+  
+    <table  class="ahrmtable">
+          <thead><th colspan="4" align="left"><h4>{% trans 'Add Experience' %}</h4></th></thead>
+          <tr><td colspan="4">&nbsp;</td></tr>
+      
+          <tr><td>{% trans 'Location' %}</td><td>{{form.location}}</td>
+              <td>{% trans 'Position' %}</td><td>{{form.position}}</td>
+          </tr>
+     
+          <tr><td>{% trans 'Start date' %}</td><td>{{form.start_date}}</td>
+              <td>{% trans 'End date' %}</td><td >{{form.end_date}} </td>
+          </tr>
+     
+          <tr><td valign="top">{% trans 'Mission' %}</td><td>{{form.mission}}</td>
+              <td colspan="2"><br/></td>
+          </tr>
+    </table><br/>
+    <input type="submit" name="experience_save" value="{% trans 'Save' %}" />
+    <input type="button" value="{% trans 'Back' %}" onclick="process('/employee/experience')"/>
+    <input type="hidden" name="exp_id" value="{{experience_id}}"/>
+   	</form>
+{%else%} 
+    <script type="text/javascript" language="JavaScript">
+        function before_delete(exp_location) {
+            if (confirm('{% trans 'Do you want to delete experience at' %}  ' + exp_location + '{% trans ' ?' %}')) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+    {% if experiences %}
+	    <table class="ahrmtablelist"  border=1>	
+		    <thead>
+		       <th>{% trans 'Location' %}</th>
+		       <th>{% trans 'Start date' %}</th>
+		       <th>{% trans 'End date' %}</th>
+		       <th>{% trans 'Position' %}</th>
+		       <th>{% trans 'Mission' %}</th>
+		       <th>{% trans 'Delete' %}</th>
+		    </thead>
+		{% for experience in experiences  %}
+	        <tr>
+	           <td><a href="/employee/experience_edit/{{experience.id}}"> {{experience.location}} </a></td>
+               <td>{{ experience.start_date}}</td>
+               <td>{{ experience.end_date}}</td>
+               <td>{{ experience.position }}</td>
+               <td>{{ experience.mission }}</td>
+               <td align="center"><a title="Delete exprience {{experience.location }}" href="/employee/experience_delete/{{experience.id}}" onclick="return before_delete('{{ experience.location }}')"><img src="/site_media/images/delete.gif" border="0"></a></td>
+            </tr>
+        {% endfor %}
+	    </table> 
+    {%else%}
+	    <font color="red"><h4>{% trans 'This employee has no experience' %}</h4></font>  
+	{%endif%}
+	<form method="post"><br/> 
+    <input type="button" onclick="process('/employee/experience/new')" value="{% trans 'Add experience' %}" /><br/>
+    </form>
+{%endif%}
+<br/>
+  

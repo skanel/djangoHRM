@@ -1,0 +1,632 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-27 17:14+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\settings.py:33
+msgid "English"
+msgstr "អង់គ្លេស"
+
+#: .\settings.py:34
+msgid "Khmer"
+msgstr "ខ្មែរ"
+
+#Global message. Most of the time we use these message
+msgid "Description"
+msgstr "ពិពណ៌នា"
+
+msgid "Save"
+msgstr "រក្សាទុក"
+
+msgid "Back"
+msgstr "ត្រឡប់ក្រោយ"
+
+msgid "End Date"
+msgstr "ថ្ងៃបញ្ចប់"
+
+# End of Global message
+
+#: .\templates\master.html.py:38
+msgid "Change Company"
+msgstr "ប្ដូរក្រុមហ៊ុន"
+
+#: .\templates\master.html.py:42
+msgid "Welcome"
+msgstr "ស្វាគមន៍"
+
+#: .\templates\master.html.py:42
+msgid "Change Password"
+msgstr "ប្ដូរលេខសំងាត់"
+
+#: .\templates\master.html.py:42
+msgid "Logout"
+msgstr "ចាកចេញ"
+
+#: .\templates\master.html.py:52
+msgid "Main page"
+msgstr "ទំព័រដំបូង"
+
+#: .\templates\master.html.py:53
+msgid "Company Structure"
+msgstr "រចនាសម្ព័ន្ធក្រុមហ៊ុន"
+
+#: .\templates\master.html.py:54
+msgid "Positions"
+msgstr "មុខតំណែង"
+
+#: .\templates\master.html.py:55
+msgid "Employees"
+msgstr "បុគ្គលិក"
+
+#: .\templates\master.html.py:56
+msgid "Contacts List"
+msgstr "បញ្ជីឈ្មោះ"
+
+#: .\templates\master.html.py:57
+msgid "About AHRM"
+msgstr "អំពីAHRM"
+
+#: .\templates\master.html.py:60
+msgid "Companies"
+msgstr "ក្រុមហ៊ុន"
+
+#: .\templates\master.html.py:61
+msgid "Users"
+msgstr "អ្នកប្រើ"
+
+#: .\templates\admin\base_site.html.py:4
+msgid "AHRM Administration"
+msgstr ""
+
+#: .\templates\admin\base_site.html.py:7
+msgid "Allweb Human Resource Administration"
+msgstr ""
+
+#: .\templates\admin\index.html.py:20
+#, python-format
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: .\templates\admin\index.html.py:21
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: .\templates\admin\index.html.py:31
+msgid "Add"
+msgstr ""
+
+#: .\templates\admin\index.html.py:37
+msgid "show"
+msgstr ""
+
+#: .\templates\admin\index.html.py:47
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: .\templates\admin\index.html.py:55
+msgid "Recent Actions"
+msgstr ""
+
+#: .\templates\admin\index.html.py:56
+msgid "My Actions"
+msgstr ""
+
+#: .\templates\admin\index.html.py:60
+msgid "None available"
+msgstr ""
+
+#: .\templates\admin\main_page.html.py
+msgid "If you have any feedback from our software, please kindly contact us by the following address"
+msgstr "ប្រសិនបើអ្នកមានមតិរិះគន់ឬកែលំអ សូមមេត្តាទំនាក់ទំនងតាមរយៈអាស័យដ្ឋានដូចខាងក្រោម"
+
+#: .\templates\admin\main_page.html.py
+msgid "Address"
+msgstr "អាស័យដ្ឋាន"
+
+#: .\templates\main_page.html.py
+msgid "Tel"
+msgstr "ទូរស័ព្ទ"
+
+#: .\templates\main_page.html.py
+msgid "E-mail"
+msgstr "អ៊ីម៉ែល"
+
+#: .\templates\main_page.html.py
+msgid "Website"
+msgstr "គេហទំព័រ"
+
+#: .\templates\main_page.html.py
+msgid "IOC Building"
+msgstr "អាគា IOC"
+
+#: .\templates\main_page.html.py
+msgid "Monivong Blvd"
+msgstr "មហាវិថី ព្រះមុនីវង្ស"
+
+#: .\templates\main_page.html.py
+msgid "Phnom Penh"
+msgstr "ក្រុង ភ្នំពេញ"
+
+#: .\templates\main_page.html.py
+msgid "Cambodia"
+msgstr "ប្រទេស កម្ពុជា"
+
+#: .\templates\positions\position_list.html.py
+msgid "List of Positions"
+msgstr "តារាងមុខតំណែង"
+
+#: .\templates\positions\position_list.html.py
+msgid "New Position"
+msgstr "មុខតំណែងថ្មី"
+
+#: .\templates\positions\position_list.html.py
+msgid "There is no position defined for this company."
+msgstr "ពុំមានមុខតំណែងនៅក្នុងក្រុមហ៊ុននេះទេ"
+
+#: .\templates\positions\position_list.html.py
+msgid "Position detail"
+msgstr "ពត៌មានលំអិតអំពីមុខតំណែង"
+
+#: .\templates\employees\employee_search.html
+msgid "Do you want to delete employee name"
+msgstr "តើអ្នកចង់លុបបុគ្គលិកឈ្មោះ"
+
+msgid " ?"
+msgstr "ឬ?"
+
+#: .\templates\employees\employee_search.html
+msgid "Employees Search"
+msgstr "ស្វែងរកបុគ្គលិក"
+
+#: .\templates\employees\employee_search.html
+msgid "Search Criteria"
+msgstr "លក្ខ័ណនៃការស្វែងរក"
+
+#: .\templates\employees\employee_search.html
+msgid "Marital Status"
+msgstr "ស្ថានភាពគ្រួសារ"
+
+#: .\templates\employees\employee_search.html
+msgid "Married"
+msgstr "រៀបការ"
+
+#: .\templates\employees\employee_search.html
+msgid "Single"
+msgstr "នៅលីវ"
+
+#: .\templates\employees\employee_search.html
+msgid "Nationality"
+msgstr "សញ្ជាតិ"
+
+#: .\templates\employees\employee_search.html
+msgid "Gender"
+msgstr "ភេទ"
+
+#: .\templates\employees\employee_search.html
+msgid "Department"
+msgstr "ផ្នែក"
+
+#: .\templates\employees\employee_search.html
+msgid "Skill"
+msgstr "មុខជំនាញ"
+
+#: .\templates\employees\employee_search.html
+msgid "Language"
+msgstr "ភាសា"
+
+#: .\templates\employees\employee_search.html
+msgid "Search"
+msgstr "ស្វែងរក"
+
+#: .\templates\employees\employee_search.html
+msgid "Employees Data"
+msgstr "ទិន្នន័យរបស់បុគ្គលិក"
+
+#: .\templates\employees\employee_search.html
+msgid "Position"
+msgstr "មុខតំណែង"
+
+#: .\templates\employees\employee_search.html
+msgid "Phone"
+msgstr "លេខទូរស័ព្ទ"
+
+#: .\templates\employees\employee_search.html
+msgid "Report"
+msgstr "របាយការណ៏"
+
+#: .\templates\employees\employee_search.html
+msgid "New Employee"
+msgstr "បុគ្គលិកថ្មី"
+
+#: .\templates\employees\employee_search.html
+msgid "No employee were found."
+msgstr "ពុំមានបុគ្គលិកដែលអ្នកចង់រកនោះទេ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Personal Information"
+msgstr "ពត៌មានផ្ទាល់ខ្លួន"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Personal Infor"
+msgstr "ពត៌មានផ្ទាល់ខ្លួន"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "First Name"
+msgstr "នាមខ្លួន"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Last Name"
+msgstr "នាមត្រកូល"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Birthday"
+msgstr "ថ្ងៃ ខែ ឆ្នាំកំណើត"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Photo"
+msgstr "រូបថត"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Driver licence"
+msgstr "ប័ណ្ណបើកបរលេខ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Date joined"
+msgstr "ថ្ងៃចូលធ្វើការ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Street"
+msgstr "លេខផ្លូវ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "City"
+msgstr "ខេត្ត/ក្រុង"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Zip code"
+msgstr "លេខកូដប្រទេស"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Contact Information"
+msgstr "ពត៌មានសំរាប់ទំនាក់ទំនង"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Export to PDF"
+msgstr "បំលែងទៅជា PDF"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Education"
+msgstr "ការសិក្សា"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Emergency"
+msgstr "ទំនាក់ទំនងបន្ទាន់"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Experience"
+msgstr "បទពិសោធន៏"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Age"
+msgstr "អាយុ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Attachment"
+msgstr "ឯកសារភ្ជាប់"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "There is no department for this employee"
+msgstr "បុគ្គលិកមិនត្រូវបានអោយបំរើការនៅផ្នែកណាមួយទេ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Add New"
+msgstr "បន្ថែម"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Employee Department"
+msgstr "តួនាទីរបស់បុគ្គលិក"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "There is no emergency contact for this employee"
+msgstr "ពុំមានអ្នកសំរាប់ទំនាក់ទំនងក្នុងករណីបន្ទាន់សំរាប់បុគ្គលិកម្នាក់នេះទេ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "New Contact"
+msgstr "ថែមអ្នកសំរាប់ទំនាក់ទំនង"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Relationship"
+msgstr "ទំនាក់ទំនង"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "This employee has no experience"
+msgstr "បុគ្គលិកម្នាក់នេះពុំមានបទពិសោធន៏ទេ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Add experience"
+msgstr "បញ្ចូលបទពិសោធន៏"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Location"
+msgstr "ទីកន្លែងធ្លាប់ធ្វើការ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Mission"
+msgstr "បេសកកម្ម"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Employee Emergency"
+msgstr "អ្នកសំរាប់ទំនាក់ទំនងបន្ទាន់របស់បុគ្គលិក"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Add Experience"
+msgstr "បន្ថែមបទពិសោធន៏"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "There is no education information for this employee"
+msgstr "ពុំមានពត៌មានអំពីការសិក្សារបស់បុគ្គលិកនេះទេ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "School"
+msgstr "វិទ្យាស្ថាន"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Specialist"
+msgstr "ឯកទេស"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Employee education"
+msgstr "ការសិក្សារបស់បុគ្គលិក"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "There is no skill information for this employee"
+msgstr "ពុំមានពត៌មានអំពីមុខជំនាញរបស់បុគ្គលិកនេះទេ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Employee Skill"
+msgstr "មុខជំនាញរបស់បុគ្គលិក"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "There is no language detail for this employee"
+msgstr "ពុំមានពត៌មានអំពីភាសារបស់បុគ្គលិកនេះទេ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "New Language"
+msgstr "បញ្ចូលភាសា"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Fluency"
+msgstr "ភាពជំនាញ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Competency"
+msgstr "សមត្ថភាព"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Employee language"
+msgstr "ភាសារបស់បុគ្គលិក "
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "There is no attachment file for this employee"
+msgstr "ពុំមានឯកសារភ្ជាប់របស់បុគ្គលិកនេះទេ"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "Employee Attachment"
+msgstr "ឯកសារភ្ជាប់របស់បុគ្គលិក"
+
+#: .\templates\employees\employee_create_in_department.html
+msgid "New"
+msgstr "បញ្ចូលថ្មី"
+
+msgid "Nº"
+msgstr "លេខ"
+
+#: .\templates\about_ahrm.html
+msgid "ALLWEB Human Resource Management is a new system which was created by an open source developers team of ALLWEB  Company."
+msgstr "ALLWEB Human Resource Management គឺជាប្រព័ន្ធថ្មីមួយដែលត្រូវបានបង្កើតឡើងដោយក្រុម Open source developer របស់ក្រុមហ៊ុន ALLWEB។"
+
+msgid "The goal of this system is to provide facilities of company,  department, and employee management for every user at every level."
+msgstr "គោលបំណងរបស់ប្រព័ន្ធគ្រប់គ្រងនេះ គឺផ្តល់ភាពងាយ ស្រួលក្នុងការគ្រប់គ្រង ក្រុមហ៊ុន , ផ្នែកនិមួយៗរបស់ក្រុមហ៊ុន , និងរាល់បុគ្គលិករបស់ក្រុមហ៊ុន ទៅដល់អ្នកប្រើប្រាស់ដែលមានចំនេះដឹងគ្រប់កំរិត។"
+
+msgid "We provide the functionality that support daily activities at department of human resources."
+msgstr "យើងផ្តល់អោយនូវមុខងារដែលជួយសំរួលទៅ ដល់សកម្មភាពប្រចាំថ្ងៃដែលមាននៅក្នុង ផ្នែកធនធានមនុស្ស។"
+
+msgid "ALLWEB Human Resource Management is really suitable for small and mid-size business which its daily activities are not much complicated or sophisticated."
+msgstr "ALLWEB Human Resource Management គឺសាកសមជាមួយពាណិជ្ជកម្មដែលមានទ្រង់ទ្រាយតូច និង មធ្យម ដែលមានសកម្មភាពពាណិជ្ជកម្មមិនសូវស្មុគស្មាញច្រើន។"
+
+msgid "However, we are  sure that it can extend for giant business because of our well structure organization of this software."
+msgstr "ទោះយ៉ាងណាក៏ដោយយើងប្រាកដថា ប្រព័ន្ធគ្រប់គ្រងនេះអាចពង្រីកសំរាប់ពាណិជ្ជកម្មខ្នាតធំបានដោយសារ ការរៀបចំនូវរចនាសម្ព័ន្ធនៃប្រព័ន្ធគ្រប់គ្រងនេះបានល្អ។"
+
+msgid "Created  by open source technologies, AHRM is the powerful software that is not only for end user but also for other developers to add more functionalities for their needs."
+msgstr "បង្កើតដោយបច្ចេកវិទ្យារបស់ Open source, AHRM គឺជាកម្មវិធីមួយដែលមានសមត្ថភាពមិនមែនត្រឹម តែអ្នកប្រើប្រាស់ទេ តែវាក៏សំរាប់ Developerផ្សេងទៀតដើម្បីសរសេរបន្ថែមមុខងារលើកម្មវិធីគ្រប់គ្រង នេះសំរាប់ជាតំរូវការរបស់ពួកគេ។"
+
+msgid "Python with Django framework are the main technologies that we decide to use to build this web system."
+msgstr "Python និង Django គឺជាបច្ចេកវិទ្យាដែលយើងសំរេចយកមក កសាងនូវប្រព័ន្ធគ្រប់គ្រងដែលដំណើរការតាមវេបនេះ។"
+
+#Compnay structure
+msgid "Department detail"
+msgstr "ពត៌មានលំអិតអំពីនាយកដ្ឋាន"
+
+
+msgid "Edit Department"
+msgstr "កែតំរូវ"
+
+msgid "Delete Department"
+msgstr "លុប"
+
+msgid "Add Department"
+msgstr "បន្ថែម"
+
+msgid "Company"
+msgstr "ក្រុមហ៊ុន"
+
+msgid "Department Type"
+msgstr "ប្រភេទនៃនាយកដ្ឋាន"
+
+#java script alert messages
+msgid "Do you want to delete position"
+msgstr "តើអ្នកចង់លុបមុខតំណែងមួយនេះឬ"
+
+msgid "Do you want to remove this employee from department"
+msgstr "តើអ្នកចង់លុបបុគ្គលិកនេះចេញពីនាយកដ្ឋាន"
+
+msgid "Do you want to delete"
+msgstr "តើអ្នកចង់លុប"
+
+msgid "emergency contact"
+msgstr "អ្នកសំរាប់ទំនាក់ទំនងបន្ទាន់"
+
+msgid "Do you want to delete experience at"
+msgstr "តើអ្នកចង់លុបបទពិសោធន៏របស់បុគ្គលិកនេះនៅឯ"
+
+msgid "employee education"
+msgstr "ពត៌មានអំពីការសិក្សាបុគ្គលិកនេះ"
+
+msgid "employee skill"
+msgstr "ពត៌មានអំពីមុខជំនាញរបស់បុគ្គលិកនេះ"
+
+msgid "language detail"
+msgstr "ពត៌មានអំពីភាសារបស់បុគ្គលិកនេះ"
+
+msgid "attachment file"
+msgstr "ឯកសារភ្ជាប់"
+
+msgid "Do you want to delete company"
+msgstr "តើអ្នកចង់លុបពត៌មានរបស់ក្រុមហ៊ុន"
+
+#
+msgid "Company detail"
+msgstr "ពត៌មានលំអិតរបស់ក្រុមហ៊ុន"
+
+msgid "New Company"
+msgstr "បន្ថែមក្រុមហ៊ុន"
+
+msgid "Select one of the following company to see detail"
+msgstr "ជ្រើសរើសក្រុមហ៊ុនណាមួយដើម្បីមើលពត៌មានលំអិត"
+
+msgid "Zip Code"
+msgstr "លេខកូដប្រទេស"
+
+msgid "Company logo"
+msgstr "និមិត្តសញ្ញាក្រុមហ៊ុន"
+
+msgid "Country"
+msgstr "ប្រទេស"
+
+msgid "Company banner"
+msgstr "ស្លាកសញ្ញាក្រុមហ៊ុន "
+
+msgid "Welcome Message"
+msgstr "ពាក្យស្វាគមន៏ដំបូង"
+
+msgid "Id"
+msgstr "ល.រ"
+
+msgid "Do you want to delete user"
+msgstr "តើអ្នកចង់លុបអ្នកប្រើប្រាស់"
+
+msgid "Group"
+msgstr "ក្រុម"
+
+msgid "New User"
+msgstr "បន្ថែមអ្នកប្រើប្រាស់ថ្មី"
+
+msgid "User Name"
+msgstr "ឈ្មោះអ្នកប្រើប្រាស់"
+
+msgid "Password Confirmation"
+msgstr "បញ្ជាក់លេខសំងាត់"
+
+msgid "User Creation"
+msgstr "បន្ថែមអ្នកប្រើប្រាស់"
+
+msgid "Detail of user"
+msgstr "ពត៌មានលំអិតរបស់"
+
+
+msgid "Department Father"
+msgstr "នាយកដ្ឋានមេ"
+
+msgid "Update"
+msgstr "បន្ទាន់សម័យ"
+
+msgid "Are you sure to delete this department?"
+msgstr "តើអ្នកពិតជាចង់លុបនាយកដ្ឋាននេះមែនទេ?"
+
+msgid "Old Password"
+msgstr "លេខសំងាត់ចាស់"
+
+msgid "New Password"
+msgstr "លេខសំងាត់ថ្មី"
+
+msgid "New Password(confirm)"
+msgstr "បញ្ជាក់លេខសំងាត់ថ្មី"
+
+msgid "Submit"
+msgstr "បញ្ជូន"
+
+msgid "Reset"
+msgstr "បំពេញឡើងវិញ"
+
+msgid "Set Password for User"
+msgstr "បញ្ចូលពាក្យសំងាត់សំរាប់អ្នកប្រើប្រាស់"
+
+msgid "Select one of the following company to enter"
+msgstr "សូមជ្រើសរើសក្រុមហ៊ុនណាមួយដើម្បីចូលប្រើប្រាស់"
+
+msgid "This user is disabled."
+msgstr "អ្នកប្រើប្រាស់នេះត្រូវបានផ្អាកដំណើរការ"
+
+msgid "User or Password invalid."
+msgstr "ឈ្មោះអ្នកប្រើប្រាស់រឺលេខសំងាត់ មិនត្រឹមត្រូវទេ"
+
+
+msgid "New Password Confirmation"
+msgstr "បញ្ជាក់ពាក្យសំងាត់"
+
+msgid "Password Setting"
+msgstr "បញ្ចូលពាក្យសំងាត់"
+
+msgid "Telephone"
+msgstr "លេខទូរស័ព្ទ"
+
+msgid "Users list"
+msgstr "បញ្ជីអ្នកប្រើប្រាស់"
+
+msgid "extension"
+msgstr "ប្រភេទឯកសារ"
+
+msgid "Active"
+msgstr "ដំណើរការ"
+
+msgid "Department Name could not be blank"
+msgstr "ឈ្មោះនាយកដ្ឋានមិនអាចទទេ"
+
+msgid "Department Describtion could not be blank"
+msgstr "ការពិពណ៍នាអំពីនាយកដ្ឋានមិនអាចទទេ"
+
+msgid "Confirm password is not correct."
+msgstr "ការបញ្ជាក់លេខសំងាត់ថ្មីមិនត្រឹមត្រូវទេ"
+
+msgid "Your old password is not correct."
+msgstr "លេខសំងាត់ចាស់របស់លោកអ្នកមិនត្រឹមត្រូវទេ"
+
+msgid "Department name"
+msgstr "ឈ្មោះនាយកដ្ឋាន"
+
+msgid "Company name"
+msgstr "ឈ្មោះក្រុមហ៊ុន"

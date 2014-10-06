@@ -1,0 +1,82 @@
+{% load i18n %}
+<br/>
+<form method="post">
+
+
+{% ifequal status 'edit_save' %}
+    <table class="ahrmtable">
+       <thead>
+           <th colspan="4" align="left">{% trans 'Employee Department' %}</th>
+       </thead>
+       {% if positions %}
+       <tr>
+          <td>{% trans 'Department' %}:</td>
+          <td>
+             <select name="department">
+               <option value="0">----------&nbsp;</option>
+               {% for dep in departments %}
+                   <option value="{{dep.id}}"
+                   {% ifequal dep.id curr_dep_id %} selected {% endifequal %}
+                   >{{dep.name}}</option>
+               {% endfor %}
+             </select>
+          </td>
+          <td>{% trans 'Position' %}</td>
+          <td>
+             <select name="position">
+               {% for pos in positions %}
+                   <option value="{{pos.id}}"
+                   {% ifequal pos.id curr_pos_id %} selected {% endifequal %}
+                   >{{pos.name}}</option>
+               {% endfor %}
+             </select>
+          </td>
+       </tr>
+       {% else %}
+          <tr>
+             <td colspan="4"><font color="red"><h4>{% trans 'You should firstly define position.'%}</h4></font></td>
+          </tr>
+       {% endif %}
+       
+    </table>
+    <br/>
+    <input type="hidden" value="{{curr_emp_dep_id}}" name="curr_emp_dep_id">
+    {% if positions %}
+    <input type="submit" value="{% trans 'Save' %}" onclick="process('/employee/department/save')" name="btn_save"/>
+    {% endif %} 
+    <input type="button" value="{% trans 'Back' %}" onclick="process('/employee/department')"/>
+{% else %}
+	{% if emp_dep_list %}
+	<script type="text/javascript" language="JavaScript">
+	    function before_delete(dep_name) {
+	        if (confirm('{% trans 'Do you want to remove this employee from department' %} ' + dep_name + '{% trans ' ?' %}')) {
+	            return true;
+	        }
+	        return false;
+	    }
+	</script>
+	<table class="ahrmtablelist" border=1>
+	    <thead>
+	        <th>{% trans 'Assignment' %}</th>
+	        <th>{% trans 'Department' %}</th>
+	        <th>{% trans 'Position' %}</th>
+	        <th>{% trans 'Delete' %}</th>
+	    </thead>
+	    {% for dep in emp_dep_list %}
+	       <tr>
+	          <td><a href="/employee/department/edit/{{dep.id}}">{% if dep.department %}{{dep.department.name}} - {% endif%} {{dep.position.name}}</td>
+	          <td>{{dep.department.name}}</td>
+	          <td>{{dep.position.name}}</td>
+	          <td align="center"><a title="Remove line." href="/employee/department/delete/{{dep.id}}" onclick="return before_delete('{{ dep.department.name }}')"><img src="/site_media/images/delete.gif" border="0"></a></td>
+	      </tr>
+	    {% endfor %}
+	</table>
+	{% else %}
+	    <font color="red"><h4>{% trans 'There is no department for this employee' %}</h4></font>
+	{% endif %}
+	<br/>
+    <input type="button" value="{% trans 'Add New' %}" onclick="process('/employee/department/new')"/>
+{% endifequal %}
+
+<br/><br/>
+</form>

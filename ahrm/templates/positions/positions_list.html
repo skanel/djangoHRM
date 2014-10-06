@@ -1,0 +1,44 @@
+{% extends "master.html" %}
+{% load ahrm_tags %}
+{% load i18n %}
+{% block title %}AHRM - Positions{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript" language="JavaScript">
+    function before_delete(com_name) {
+        if (confirm('{% trans 'Do you want to delete position' %} ' + com_name + ' ?')) {
+            return true;
+        }
+        return false;
+    }
+</script>
+
+<br/>
+<h4>{% trans 'List of Positions' %}</h4>
+<table class="ahrmtablelist" border="1">
+     <thead>
+         <th>{% trans 'Name' %} </th>
+         <th>{% trans 'Description' %}</th>
+         <th>{% trans 'Delete' %}</th>
+     </thead>
+ {% if positions %}
+    {% for pos in positions %}
+     <tr>
+        <td><a href = "/position/edit/{{ pos.id }}">{{ pos.name }}</a></td>
+        <td>{{ pos.description }}</td>
+        <td align="center"><a title="Delete position {{pos.name}}." href="/position/delete/{{pos.id}}" onclick="return before_delete('{{ postion.name }}')"><img src="/site_media/images/delete.gif" border="0"></a></td>
+     </tr>   
+    {% endfor %}
+  {% else %}
+     <font color="red"> <br>{% trans 'There is no position defined for this company.'%}</font>
+  {% endif %}
+</table>
+<br/>
+
+<form method="post">
+    <input type="button" onclick="process('/position/new')" value="{% trans 'New Position' %} "/>
+<form>
+<br/><br/>
+          
+{% endblock %}

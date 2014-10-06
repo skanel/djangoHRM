@@ -1,0 +1,145 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN " 
+"http://www.w3.org/TR/html4/loose.dtd">
+{% load i18n %}
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+   .block_header {
+       font: bold 20px oblique;
+       color: black;
+       text-decoration: underline;
+   }
+   
+   
+   @font-face {
+        font-family: "CODE2000";
+        src: url("{{url}}/font/code2000.ttf")
+    }
+
+    html {
+        font-family: "code2000";
+    }
+   
+</style>
+
+</head>
+<body>
+<div id="headerContent" align="right">
+<img src="{{ url }}/{{ curr_employee.company.logo }}" width="4cm" height="4cm" align="left"/>
+ALLWEB Human Resource Management
+  <hr/>
+</div>
+
+<h1 class="block_header">{% trans 'Personal Information' %} </h1>
+<table border="0">
+<tr>
+    <td valign="top" width="80%">
+        <table width="100%">
+           <tr>
+                <td width="20%"><span class="name">{% trans 'Name' %}</span></td>
+                <td>: <b>{{ curr_employee.fname }} {{ curr_employee.lname }}</b></td>
+           </tr>
+           <tr>
+                <td>{% trans 'Age' %}</td>
+                <td>: <b>{{ curr_employee.get_age }}</b></td>
+           </tr>
+           <tr>
+                <td>{% trans 'Nationality' %}</td>
+                <td>: <b>{{ curr_employee.nationality.nationality }}</b></td>
+           </tr>
+           <tr>
+               <td valign="top">{% trans 'Address' %}</td>
+               <td>: <b>{{ curr_employee.street }} {{ curr_employee.city }}</b></td>
+          </tr>
+         <tr>
+               <td>{% trans 'Phone' %}</td>
+               <td>: <b>{{ curr_employee.phone }}</b></td>
+          </tr>
+          <tr>
+               <td>{% trans 'E-mail' %}</td>
+               <td>: <b>{{ curr_employee.mail }}</b></td>
+          </tr>           
+      </table>         
+    </td>
+    <td valign="top" align="right">
+        &nbsp;<img src="{{ url }}/{{ curr_employee.photo }}" width="3cm" height="4cm" />
+    </td>
+</tr>
+</table>
+
+{% if curr_employee.education_set.all %}
+<br/>
+<h1 class="block_header">{% trans 'Education' %}</h1>
+{% for education in curr_employee.education_set.all %}
+<table width="100%" repeat="1">
+    <tr>
+         <td>{{education.start_date}} - {{education.end_date}}</td>
+    </tr>
+    <tr>
+         <td>{{education.school}}</td>
+    </tr>
+    <tr>
+         <td>{{education.specialist}}</td>
+    </tr>
+</table>
+{% endfor %}
+{% endif %}
+
+
+{% if curr_employee.experience_set.all %}
+<br/>
+<h1 class="block_header" repeat="1">{% trans 'Experience' %}</h1><br/>
+{% for experience in curr_employee.experience_set.all %}
+<table width="100%" repeat="1">
+    <tr>
+         <td style="font: bold">{{experience.start_date}} - {{experience.end_date}}</td>
+         <td colspan="2">{{ experience.location }}</td>
+    </tr>
+    <tr>
+       <td width="20%">&nbsp;</td>
+       <td width="15%">{% trans 'Position' %} : </td>
+       <td>{{ experience.position }}</td>
+    </tr>
+    <tr valign="top">
+       <td>&nbsp;</td>
+       <td>{% trans 'Mission' %}:</td>
+       <td> <b>{{ experience.mission }}</b></td>
+    </tr>
+</table>
+
+{% endfor %}
+{% endif %}
+
+{% if curr_employee.skill_set.all %}
+<br/>
+<h1 class="block_header" repeat="1">{% trans 'Skill'%}</h1><br/>
+<table width="100%"  repeat="1">
+{% for skill in curr_employee.skill_set.all %}
+    <tr valign="top">
+         <td width="15%">{{skill.skill_name}} : </td>
+         <td>{{skill.description }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% if curr_employee.employeelanguage_set.all %}
+<br/>
+<h1 class="block_header">{% trans 'Language' %}</h1><br/>
+<table width="100%" repeat="1">
+{% for emp_lang in curr_employee.employeelanguage_set.all %}
+    <tr>
+        <td  width="20%">{{emp_lang.language.language}} : </td>
+        <td>{{emp_lang.competency}}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endif %}
+<div id="footerContent" align="center">
+  <hr/><br/>
+  {{ curr_employee.company.address }}
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,172 @@
+{% extends "master.html" %}
+{% load ahrm_tags %}
+{% load i18n %}
+{% block title %}AHRM - {% trans 'Search Employees' %}{% endblock %}
+
+{% block content %}
+<script type="text/javascript" language="JavaScript">
+    function before_delete(name) {
+        if (confirm('{% trans 'Do you want to delete employee name' %} : ' + name + '{%trans ' ?' %}')) {
+            return true;
+        }
+        return false;
+    }
+</script>
+<br/>
+<h4>{% trans 'Employees Search' %} </h4>
+<form method="post">
+	<table width="100%" border="0" class="ahrmtable">
+		<thead>
+			<th colspan="4" align="left">{% trans 'Search Criteria' %}</th>
+		</thead>
+		<tr>
+			<td colspan="4">&nbsp;</td>
+		</tr>
+		<tr>
+			<td >{% trans 'Name' %}</td>
+			<td ><input type="text" name="search_name" value="{{ criteria.name }}"  width="30px"/></td>
+			<td >{% trans 'Marital Status' %} </td>
+			<td >
+				<select name="search_status" width="30px">
+					<option value="">--------------&nbsp;</option>
+					{% for status in marital_status %}
+						{% ifequal status.code criteria.marital_status %}
+							<option value="{{ status.code }}" selected>{{ status.desc }}</option>
+						{% else %}
+							<option value="{{ status.code }}">{{ status.desc }}</option>
+						{% endifequal %}
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td > {% trans 'Active' %}</td>
+			<td >
+				
+				<select name="search_active" width="30px">
+					<option value="">--------------&nbsp;</option>
+					{% ifequal  1 criteria.isActive %}
+						<option value="1" selected>Active</option>
+						<option value="0">Inactive</option>
+					{% else %}
+						{% ifequal 0 criteria.isActive %}
+							<option value="1">Active</option>
+							<option value="0" selected>Inactive</option>
+						{% else %}
+							<option value="1">Active</option>
+							<option value="0">Inactive</option>
+						{% endifequal %}
+					{% endifequal %}
+					
+				</select>
+				<!-- 
+				{% ifequal  "on" criteria.isActive %}
+					<input type="checkbox" checked name="search_active" width="30px"/>
+				{% else %}
+					<input type="checkbox" name="search_active" width="30px"/>
+				{% endifequal%}  -->
+			</td>
+			<td > {% trans 'Nationality' %}</td>
+			<td >
+				<select name="search_nation" width="30px">
+					<option value="">--------------&nbsp;</option>
+					{% for country in countries %}
+						{% ifequal country.id criteria.nationality%}
+							<option value="{{ country.id }}" selected> {{ country.nationality }}</option>
+						{% else %}
+							<option value="{{ country.id }}"> {{ country.nationality }}</option>
+						{% endifequal %}
+					{% endfor %}
+				</select>  
+			</td>
+		</tr>
+		<tr>
+			<td >{% trans 'Gender' %}</td>
+			<td >
+				<select name="search_gender" width="30px">
+					<option value="">--------------&nbsp;</option>
+					{% for gender in gender %}
+						{% ifequal gender.code criteria.gender %}
+							<option value="{{ gender.code}}" selected> {{ gender.desc }}</option>		
+						{% else %}
+							<option value="{{ gender.code}}"> {{ gender.desc }}</option>
+						{% endifequal %}
+					{% endfor %}
+				</select>
+			</td>
+			<td >{% trans 'Department' %}</td>
+			<td >
+				<select name="search_dep" width="30px">
+					<option value="">--------------&nbsp;</option>
+					{% for department in departments %}
+						{% ifequal department.id criteria.department %}
+							<option value="{{ department.id}}" selected> {{ department.name }}</option>		
+						{% else %}
+							<option value="{{ department.id}}"> {{ department.name }}</option>
+						{% endifequal %}
+					{% endfor %}
+				</select>
+			</td> 
+		</tr>
+		<tr>
+			<td>{% trans 'Skill' %}</td>
+			<td><input type="text" name="search_skill" value="{{criteria.skill}}"/></td>
+			<td>{% trans 'Language' %}</td>
+			<td>
+				<select name="search_language">
+					<option value="">--------------&nbsp;</option>
+					{% for country in countries %}
+						{% ifequal country.id criteria.language %}
+							<option value="{{country.id}}" selected> {{country.language}} </option>
+						{% else %}
+							<option value="{{country.id}}"> {{country.language}} </option>
+						{% endifequal %}
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="4">&nbsp;</td>
+		</tr>
+	</table> 
+	<div style="height: 15px"></div>
+	<input type="button" value="{% trans 'Search' %}" onclick="process('/employee/search')">
+	<!-- input type="button" value="New Employee" onclick="process('/employee/new')" / -->
+</form>
+<br/>
+<!-- Employee result list -->
+	{% if employees %}
+	<table class="ahrmtablelist" cellspacing="0" border=1>
+		<h4>{% trans 'Employees Data' %}</h4>
+		<thead>
+		  <th scope="col" abbr="firstname">{% trans 'Name' %}</th>
+		  <th scope="col" abbr="gender">{% trans 'Gender' %}</th>
+		  <th scope="col" abbr="gender">{% trans 'Position' %}</th>
+		  <th scope="col" abbr="gender">{% trans 'Department' %}</th>
+		  <!-- th scope="col" abbr="email">E-mail</th-->
+		  <th scope="col" abbr="mobile">{% trans 'Phone' %}</th>
+		  <th>{% trans 'Report' %}</th>
+		  <th>{% trans 'Delete'%}</th>
+		</thead>
+	   {% for employee in employees %}
+		   <tr>
+	         <td><a href='/employee/edit/{{ employee.id }}'>{{ employee.lname }}&nbsp;&nbsp;{{ employee.fname }}</a></td>
+	         <td>{{employee.gender}}</td>
+	         <td>{{employee.first_department_position.position.name}}</td>
+	         <td>{{employee.first_department_position.department.name}}</td>
+	         <!-- td>{{ employee.mail }}</td-->
+	         <td>{{ employee.phone }}</td>
+          	 <td align="center"><a href="/employee/report/pdf/{{ employee.id }}"><img src="/site_media/images/pdf.png" border="0" width="16px" height="16px"/></a></td>
+          	 <td align="center"><a href="/employee/delete/{{ employee.id }}" onclick="return before_delete('{{employee.lname}} {{employee.fname}}')"><img src="/site_media/images/delete.gif" border="0"/></a></td>
+	       </tr>
+	   <p>
+	   {% endfor %}
+	</table>	   
+	 {% else %} <!-- If There are not a data in the specific record -->
+	   <h4><font color="red">{% trans 'No employee were found.'%}</font></h4>
+	{% endif %}
+<div style="height: 15px"></div>
+<input type="button" value="{% trans 'New Employee' %}" onclick="process('/employee/addnewpage')" />
+<br/><br/>
+{% endblock %}
+

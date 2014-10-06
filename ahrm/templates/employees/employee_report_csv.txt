@@ -1,0 +1,1 @@
+{{ get_employee.birthday|addslashes }},{{ get_employee.marital_status }},{{ get_employee.driver_licence }},{{ get_employee.street }},{{ get_employee.city }},{{ get_employee.zip_code }},{{ get_employee.phone }},{{ get_employee.mail }},{{ get_employee.date_joined }}

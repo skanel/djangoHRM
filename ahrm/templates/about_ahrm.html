@@ -1,0 +1,40 @@
+{% load i18n %}
+<html>
+    <head>
+        <title>About Allweb Human Resource Management</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="/site_media/style.css" />
+    </head>
+    <body style="background-color: #C1EEFF">
+        <table width="100%">
+			<tr>
+			   <td><img src="/site_media/images/allwelogo.png" width="150" height="150" alt="Human Resource Management" /></td>
+			</tr>
+			<tr>
+			   <td><font color="#E792A0"> <h2>ALLWEB Human Resource Management</h2></font></td>
+			</tr>
+			<tr>
+                <td><font color="gray"> Version 1.02</td>
+			</tr>
+		</table>
+		<br/>
+		<table width="100%">
+		   <tr>
+		       <td>
+		           <p align="justify">
+		               {% trans 'ALLWEB Human Resource Management is a new system which was created by an open source developers team of ALLWEB  Company.' %}
+			           {% trans 'The goal of this system is to provide facilities of company,  department, and employee management for every user at every level.' %} 
+			           {% trans 'We provide the functionality that support daily activities at department of human resources.' %}
+		           </p><br/>
+		           <p align="justify">
+		               {% trans 'ALLWEB Human Resource Management is really suitable for small and mid-size business which its daily activities are not much complicated or sophisticated.' %}
+		               {% trans 'However, we are  sure that it can extend for giant business because of our well structure organization of this software.' %}
+		           </p><br/>
+		           <p align="justify">
+		               {% trans 'Created  by open source technologies, AHRM is the powerful software that is not only for end user but also for other developers to add more functionalities for their needs.' %}
+		               {% trans 'Python with Django framework are the main technologies that we decide to use to build this web system.' %} 
+		           </p>
+		       </td>
+		   </tr>
+		</table>
+    </body>
+</html>

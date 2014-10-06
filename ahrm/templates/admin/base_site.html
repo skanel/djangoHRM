@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'AHRM Administration' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Allweb Human Resource Administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block extrastyle %}
+<style>
+/* Header background color */
+#header {
+  background-color: #FFA500;
+}
+/* Header title font color */
+#branding h1 {
+  color: #fff;
+}
+/* Link box title bar color */
+.module caption, .module h2 {
+  background-color: #FFA500;
+  background-image: None;
+  color: #fff;
+}
+/* Change list shaded row color */
+.row1 {
+  background-color:#eee;
+}
+/* Change list non-shaded row color */
+.row2 {
+  background-color: #fff;
+}
+</style>
+{% endblock %}
+{% block footer %}
+ <hr/>
+  <div id="copyright">Copyright Allweb 2009</div>
+{% endblock %}

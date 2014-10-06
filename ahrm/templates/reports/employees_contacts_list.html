@@ -1,0 +1,59 @@
+<! DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN " 
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" media="screen" href="/site_media/style.css" />
+<style>
+   .block_header {
+       font: bold 20px oblique;
+       color: black;
+       text-decoration: underline;
+   }
+   
+   @font-face {
+        font-family: "CODE2000";
+        src: url("{{url}}/font/code2000.ttf")
+    }
+
+    html {
+        font-family: "code2000";
+    }
+
+</style>
+
+</head>
+<body>
+
+<div id="headerContent" align="right">
+   <img src="{{ url }}/{{company.logo}}" width="4cm" height="4cm" align="left"/>{{company.name}} Human Resource Management
+  <hr/>
+</div>
+{% load i18n %}
+<h1>{% trans 'Contacts List' %} </h1>
+<table border="1" class="ahrmtablelist">
+	<thead>
+	    <th align="center"><br>{% trans 'Nº' %}</th>
+	    <th align="center">{% trans 'First Name' %}</td>
+	    <th align="center">{% trans 'Last Name' %}</td>
+	    <th align="center">{% trans 'Telephone' %}</td>
+	    <th align="center">{% trans 'E-mail' %}</td>	    
+	</thead>
+	{% for employee in employees %}
+		<tr>
+			<td  align="center"><br>{{forloop.counter}}</td>
+			<td>&nbsp{{employee.fname}}</td>
+			<td>&nbsp{{employee.lname}}</td>
+			<td>&nbsp{{employee.phone}}</td>
+			<td>&nbsp{{employee.mail}}</td>
+		</tr>
+	{% endfor %}
+</table>
+<!-- Here is footer -->
+<div id="footerContent" align="center">
+  <hr/><br/>
+  {{company.name}} Company<br/>{{company.address}}.
+ </div>
+</body>
+</html>
+

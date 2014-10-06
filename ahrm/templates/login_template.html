@@ -1,0 +1,113 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>AHRM - Login</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/site_media/style.css" />
+    <script type="text/javascript">
+       function select_language(language_cd) {
+           document.i18n_form.language.value = language_cd;
+           document.i18n_form.submit();
+       }
+    </script>
+    {% load i18n %}
+<head>
+<body>
+   <div class="main_div" align="center">
+	<div id="header">
+       <div id="banner"></div>
+    </div>
+    <div id="page-wrap">
+       <table width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td id="main-sidebar" style="background-color: #C1EEFF"></td>
+        <td id="main-content">
+              <br/>
+              <form action="/i18n/setlang/" method="post" name="i18n_form">
+                <input name="next" type="hidden" value="" />
+                <input type="hidden" name="language" value="" />
+                {% for lang in LANGUAGES %}
+                   <a href="#" onclick="select_language('{{lang.0}}')" title="{% trans lang.1 %}"><img src="/site_media/images/flags/{{lang.0}}.gif" border="0"/></a>
+                   &nbsp;
+                {% endfor %}
+                
+            </form>
+			<form method="post" action="/login/verification"><br>
+				<table border="0" cellpadding="0" cellspacing="0" width="95%">
+				   <tr>
+				   	<td style="background-image: url('/site_media/images/left.jpg'); background-repeat: no-repeat;">&nbsp;</td>
+				   	<td style="background-image: url('/site_media/images/middle.jpg'); background-repeat: repeat-x" align="center">
+				   		<table border=0 width="100%">
+				   			<tr>
+				    			<td align="center" >
+									<table cellpadding="1" cellspacing="1" border="0" align="center" width="75%">
+										<tr>
+											<td colspan="2" align="center">	
+									    		<font style="font-family: serif, cursive;" color="blue" size="5px">
+									    		
+									    		</font> <br><br>
+									    	</td>
+										</tr>
+									    <tr>
+									    	<td width="30%" valign="top" >												
+												<img src="/site_media/images/security.jpg"/>
+											</td>
+										    <td align="right" width="70%" valign="top">										    	{% if login_failed %}
+												   <font color="red"><b>
+												    {{login_failed}}
+												   </b></font>
+												    <br/>
+												{% endif%}
+										    	<table border="1">
+										    		<tr>
+										    			<td>
+										    				<table border="0">
+													          <tr>
+													             <td width="10%">&nbsp;<td>
+													             <td width="40%">&nbsp;<td>
+													             <td width="50%">&nbsp;<td>
+													          </tr>
+													          <tr>
+													             <td>&nbsp;<td>
+													             <td>{% trans 'User' %}: <td>
+													             <td><input type="text" value="{{user_name}}" name="user_name"><td>
+													          </tr>
+													          <tr>
+													             <td>&nbsp;<td>
+													             <td>{% trans 'Password' %}: <td>
+													             <td><input type="password" value="" name="user_pwd"><td>
+													          </tr>
+													          <tr>
+													             <td>&nbsp;<td>
+													             <td>&nbsp;<td>
+													             <td>&nbsp;<td>
+													          </tr>
+													       </table>
+										    			</td>
+										    		</tr>
+										    	</table>
+										    	<div style="height: 13px"></div>
+										    	<input type="submit" value="{% trans 'Login' %}" style="width: 80px" />
+										    </td>
+									    </tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+				   		</table>
+				   	</td>
+			   		<td width="10px" style="background-image: url('/site_media/images/right.jpg'); background-repeat: repeat-x"></td>						
+				   </tr>
+				</table>
+			</form>
+        </td>
+        </tr>
+        </table>
+    </div>
+    <div id="footer" align="center">
+         <hr/>
+         <a href="http://www.allweb.com.kh">Copyright © 2009 Allweb Company.</a>
+    </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+{% load ahrm_tags %}
+
+{% block title %}AHRM - Companies List{% endblock %}
+
+{% block content %}
+<h2>Companies List</h2>
+
+{% if companies_list %}
+<ul>
+  {% for company in companies_list %}
+  <li>
+    {{company.name}} - {{company.country.name}}
+    <ul>
+      {{company.department_structure|unordered_list|make_department_links|safe}}
+    </ul>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No companies available</p>
+{% endif %}
+{% endblock %}

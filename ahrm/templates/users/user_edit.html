@@ -1,0 +1,127 @@
+{% extends "master.html" %}
+{% load ahrm_tags %}
+{% load i18n %}
+
+{% block title %}AHRM - User Detail{% endblock %}
+
+{% block content %}
+<form method="post" action="/user/edit/save/{{ user_id }}">
+<h4>&nbsp</h4>
+<font color="red"><b>
+{% if form.errors %}
+     {% for field in form %}
+        {% if field.errors %}
+           {% for error in  field.errors %}
+            {{ field.label_tag }}: {{ error }}<br/>
+           {% endfor %}
+        {% endif %}
+     {% endfor %}
+{% endif %}
+</b></font>
+<script type="text/javascript" language="JavaScript">
+    var array_com_id = new Array();
+{% if coms %}
+   {% for com in coms %}
+       array_com_id.push({{com.company_id}});
+   {% endfor %}
+{% endif %}
+    function control_check(elt) {
+        for (i=0; i<array_com_id.length; i++) {
+            obj = document.getElementsByName("main_check_" + array_com_id[i])[0];
+            obj.checked = elt.checked;
+        }
+    }
+</script>
+<table class="ahrmtable">
+    <thead>
+       <th colspan="4" align="left">{% trans 'Detail of user' %}: {{ user_name }}</th>
+    </thead>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+     </tr>
+     <tr>
+        <td>{% trans 'First Name' %}: </td>
+        <td>{{form.first_name}}</td>
+        <td>{% trans 'Last Name' %}: </td>
+        <td>{{form.last_name}}</td>
+     </tr>
+     <tr>
+        <td>{% trans 'E-mail' %}: </td>
+        <td>{{form.email}}</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+     </tr>
+     <!-- 
+     <tr>
+        <td>Groups</td>
+        <td>{{form.groups}}</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+     </tr> -->
+     <tr>
+        <td>{% trans 'Groups' %}</td>
+        <td>
+            <select name="groups" id="id_groups">
+                {% ifnotequal user_type 2%}
+                    {% ifequal group_id 1%}
+				        <option value="1" selected>admin</option>
+				    {% else %}
+				        <option value="1">admin</option>
+				    {% endifequal %}
+				{% endifnotequal %}
+			    {% ifequal group_id 2 %}
+                    <option value="2" selected>HR</option>
+                {% else %}
+                    <option value="2">HR</option>
+                {% endifequal %}
+				{% ifequal group_id 3 %}
+                    <option value="3" selected>Manager</option>
+                {% else %}
+                    <option value="3">Manager</option>
+                {% endifequal %}
+				
+			</select>
+		    
+        </td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+     </tr>
+     <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+     </tr>
+  </table>
+  <br/>
+  
+  <table class="ahrmtablelist" border="1">
+      <thead>
+          <th><input type="checkbox" name="main_check" onclick="control_check(this)"/></th>
+          <th>{% trans 'Name' %}</th>
+          <th>{% trans 'Description' %}</th>
+      </thead>
+      {% if coms %}
+        {% for com in coms %}
+           <tr>
+               <td align="center"><input type="checkbox" name="main_check_{{com.company_id}}" 
+               {% if com.register %}
+                   checked
+               {% endif %}
+               /></td>
+               <td>{{ com.company_name }}</td>
+               <td>{{ com.company_desc }}</td>
+           </tr>
+        {% endfor %}
+      {% endif %}
+  </table>
+  
+  <input type="submit" value="{% trans 'Save' %}" name="btn_save"/> &nbsp;&nbsp;
+  <input type="button" value="{% trans 'Password' %}" onclick="process('/user/pwd/update/{{ user_id }}')"/>&nbsp;&nbsp; 
+  <input type="button" value="{% trans 'Back' %}" onclick="process('/users/list')"/>
+  <br/><br/>
+</form>
+{% endblock %}

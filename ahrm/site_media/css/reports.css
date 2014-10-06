@@ -1,0 +1,29 @@
+@page {
+    size: a4;
+    /*top: 2cm;
+    left: 2cm;
+    right: 2cm;
+    height: 2cm;*/
+    @frame middle {
+        margin-top: 3.5cm;
+        margin-right: 1.5cm;
+        margin-left: 1.5cm;
+        bottom: 2cm;
+    }
+
+    @frame footer {
+        -pdf-frame-content: footerContent;
+        bottom: 0cm;
+        margin-left: 1cm;
+        margin-right: 1cm;
+        height: 1.7cm;
+    }
+  
+    @frame header {
+        -pdf-frame-content: headerContent;
+        top: 0cm;
+        margin-left: 1cm;
+        margin-right: 1cm;
+        height: 3.5cm;
+    }
+}

@@ -1,0 +1,197 @@
+
+*{ 
+	margin: 0;
+	padding: 0;
+  }
+  
+body{
+	font: 15px/2 Georgia, serif; 
+	background: #FFFFD0;
+	}
+
+h1{ 
+	color: white;
+	padding: 10px;
+   }
+
+#maindiv{
+    height: 800px;
+    border: solid 1px;
+    width: 80%
+    
+}
+
+div {
+   border-color: lime;
+}
+
+#page-wrap{ 
+    width:960px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#banner 
+{
+	width:960px;
+	max-height: 125px;
+	height: 125px;
+ 	background-image: url("/site_media/images/logo1.jpg");
+    background-repeat: no-repeat;
+    
+}
+#header {
+	background-image: url("/site_media/images/logo2.jpg");
+    width:960px;
+    margin: 15px auto 0;
+   
+    }
+
+#main-content{
+	 padding: 0 0 0 15px;
+	 background: white;
+	 
+    }
+
+#main-sidebar{ 
+	/*position: absolute;*/
+    left: 0; top: 0;
+    width: 20%;
+    bottom: 0;
+    background: #DDDDDD;
+    padding: 0 10px;
+   }
+#info{
+	 width:960px;
+	 background: #95d5f0;
+     margin: 0 auto;
+     }
+                      
+#footer{
+	 width:960px;
+	 background: #95d5f0;
+     margin: 0 auto 15px;
+     }
+#footer p{
+	 padding: 10px;
+	 color: white;
+	 }
+#footer a  { 
+	color: blue;
+	border-bottom:1px dotted white; 
+	text-decoration: none;
+	}
+#footer a:hover{ 
+	border-bottom-style: solid;
+	color: yellow; 
+	}
+	
+.ahrmtablelist {
+     border-collapse:collapse;
+     /*background:#EFF4FB;*/
+     background:#CFF4FB;
+     border-left:1px solid #686868;
+     border-right:1px solid #686868;
+     font:0.8em/145% Georgia, serif;
+     color: #333;
+     width: 98%;
+     margin: solid 2px;
+}
+
+.ahrmtable {
+     border-collapse:collapse;
+     background:#CFF4FB;
+     border-left:1px solid #686868;
+     border-right:1px solid #686868;
+     border-bottom:1px solid #686868;
+     border-top:1px solid #686868;
+     font:0.8em/145% Georgia, serif;
+     color: #333;
+     width: 98%;
+     
+}
+
+.ahrmtablenormal {
+     border-collapse:collapse;
+     /*background:#CFF4FB;
+     border-left:1px solid #686868;
+     border-right:1px solid #686868;
+     border-bottom:1px solid #686868;
+     border-top:1px solid #686868;*/
+     font:0.8em/145% Georgia, serif;
+     color: #333;
+     /*width: 98%;*/
+     
+}
+
+.ahrmtable tr td, .ahrmtablelist tr td {
+	padding-left: 5px;
+}
+
+.ahrmtablelist tr td {
+     /*border-bottom: solid 1px #333;*/
+     /*border: solid 1px white*/;
+}
+
+.ahrmtablelist tr:hover {
+     background:#fafafa
+}
+
+.ahrmtable tr, .ahrmtablelist tr, .ahrmtablenormal tr{
+    height: 25px;
+}
+
+thead th, tfoot th, tfoot td {
+    background:#333 url(/site_media/images/llsh.gif) repeat-x;
+    color:#fff;
+    text-align: center;
+}
+
+.label {
+	background-color: #C1EAFF;
+	width: 20%;
+}
+
+.field {
+	width: 30%;
+	background-color: silver;
+	
+}
+
+.ahrm_tab_selected {
+    background:#E5E5E5;
+    border-top: 1px solid #757575 ;
+    border-left: 1px solid  #757575;
+    border-bottom: 1px solid #E5E5E5;
+    border-right: 1px solid #757575;
+}
+
+.ahrm_tab {
+    background:#C0C0C0;
+    text-align: center;
+    height: 8px;
+   
+    border-top: 1px solid #E5E5E5;
+    border-left: 1px solid  #E5E5E5;
+    border-bottom: 1px solid #757575;
+    border-right: 1px solid #757575;
+
+}
+
+.ahrm_tab a {
+   text-decoration: none;
+   font: blue;
+}
+
+.ahrm_tab_content {
+    border-bottom: 1px solid #757575;
+    border-left: 1px solid #757575;
+    border-right: 1px solid #757575;
+    background:#E5E5E5;
+}
+
+.main_div {
+    width:100%;
+    /*background: #FCCB08;*/
+    margin: 15px auto 0;
+}

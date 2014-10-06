@@ -1,0 +1,66 @@
+<br/>
+{% load i18n %}
+{% if status %}
+	<form action="/employee/skill/save" method="POST">
+		<font color="red"><b>
+		  {% if error_name %}
+		     <label for="id_name">Name</label>: This field is required.<br/>
+		  {% endif %}
+		  {% if form.errors %}
+		     {% for field in form %}
+		        {% if field.errors %}
+		           {% for error in  field.errors %}
+		            {{ field.label_tag }}: {{ error }}<br/>
+		           {% endfor %}
+		        {% endif %}
+		     {% endfor %}
+		  {% endif %}
+		</b></font>
+		<table class="ahrmtable" width="100%">
+			<thead>
+				<th align="left" colspan="4">{% trans 'Employee Skill' %}</th>
+			</thead>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+			<tr>
+				<td>{% trans 'Skill' %}</td>
+				<td>{{form.skill_name}}</td>
+			</tr>
+			<tr>
+				<td valign="top">{% trans 'Description' %}</td>
+				<td >{{form.description}}</td>
+			</tr>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+		</table>
+		<input type="hidden" name="skill_id" value="{{skill_id}}"/>
+		<input type="submit" value="{% trans 'Save' %}"/>
+		<input type="button" value="{% trans 'Back' %}" onclick="process('/employee/skill')"/>
+	</form>
+{% else %}
+	{% if skills %}
+		<table class="ahrmtablelist" border=1>
+			<thead>
+				<th> {% trans 'Skill' %}</th>
+				<th>{% trans 'Description' %}</th>
+				<th>{% trans 'Delete' %}</th>
+			</thead>
+			{% for skill in skills %}
+				<tr>
+					<td><a href="/employee/skill/edit/{{skill.id}}">{{skill.skill_name}}</a></td>
+					<td>{{skill.description}}</td>
+					<td align="center"><a href="/employee/skill/delete/{{skill.id}}" onclick="return before_delete('{% trans 'employee skill' %} ')"><img src="/site_media/images/delete.gif" border="0"/></a></td>
+				</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<font color="red"><h4>{% trans 'There is no skill information for this employee' %}</h4></font>
+	{% endif %}
+		<div style="height: 15px"></div>
+		<form action="/employee/skill/new" method="POST">
+			<input type="submit" value="{% trans 'New' %}"/> 
+		</form>
+{% endif %}
+<br/>

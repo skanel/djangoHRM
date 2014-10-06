@@ -1,0 +1,125 @@
+<!--
+ ____________________________________________________________
+|                                                            |
+|    DESIGN + Employee  { Display Employee list }            |
+|      DATE + 2009.02.27                                     |
+| COPYRIGHT + allweb company                                 |
+|____________________________________________________________|
+
+-->
+{% extends 'master.html' %}
+{% load i18n %}
+
+{% block content %}<!-- 
+<link rel="stylesheet" href="/site_media/javascripts/resources/css/ext-all.css" type="text/css" />
+<script src="/site_media/javascripts/ext-base.js" type="text/javascript" language="javascript"></script>
+<script src="/site_media/javascripts/ext-all.js" type="text/javascript"  language="javascript"></script>  -->  
+<script>
+//------------------------------------------------Initialize EXTJS --------------------------------------//
+	var windowForm;
+	var form;
+    var tree;
+    Ext.onReady(function(){     
+        Ext.QuickTips.init();      
+      	createTree();      	    	
+    });   
+    
+
+//----------------------------------------------- Create Tree of Company Structure ----------------------//
+    function createTree()
+    {     
+	    var Tree = Ext.tree;    
+	    var tree = new Tree.TreePanel({
+	        el:'tree-div',
+	        useArrows:true,
+	        autoScroll:true,
+	        animate:true,
+	        enableDD:true,
+	        containerScroll: true, 
+	        loader: new Tree.TreeLoader({
+	            dataUrl:'/treedata/{{ id }}/'
+	        })
+	        
+	    });
+	
+	    // set the root node
+	    var root = new Tree.AsyncTreeNode({
+	        text: '{{ name }} Company',
+	        draggable:false,
+	        id:'company@@@{{ id }}'
+	    });
+	    	    
+	    // Action when drag and drop node of tree
+	    tree.on("movenode", function(tree,node,oldParent,newParent,number) {	    		   
+			arr_old = oldParent.id.split("@@@");
+			arr_new = newParent.id.split("@@@");
+			arr_node = node.id.split("@@@");		
+			var req = Ext.Ajax.request(
+	      	{
+		   		method: 'POST',
+		   		url: '/movenode/',
+		   		params: {number: number, depOldType: arr_old[0], depOldId: arr_old[1],depNewType: arr_new[0], depNewId: arr_new[1],depNodeId: arr_node[1]},	   
+		   		failure:function(response, options)
+		   		{
+		       		alert('not ' + response.text);
+			    }
+	       	}       	
+	       	);
+		 });	    
+		
+		
+		
+	    tree.setRootNode(root);	    
+	    // render the tree
+	    tree.render();	    
+	    root.expand();	    	    
+	    tree.getSelectionModel().on({'click' : function(sm, node){
+	    if(node){    		
+      		alert("Hello")
+       	}
+    	},
+    	scope:this
+    	});
+	    tree.getSelectionModel().on({'selectionchange' : function(sm, node){
+    	if(node){    		
+      		lnkselect(node);
+       	}
+    	},
+    	scope:this
+    	});    	
+   	}
+   	function lnkselect(node){   	       	   
+		arr_data = node.id.split("@@@");		
+		var req = Ext.Ajax.request(
+       	{
+	   		method: 'POST',
+	   		url: '/viewdetail/',
+	   		params: {objType: arr_data[0], objId: arr_data[1]},	   
+	   		failure:function(response, options)
+	   		{
+	       		alert('not ' + response.text);
+		    },
+		    success: test
+       	}       	
+       	);      
+	}	
+	function test(response,options) {
+	    document.getElementById("detail_data").innerHTML = response.responseText;
+	    //alert(response.responseText);
+	}
+	function beforeDelete(){
+		return confirm("{% trans 'Are you sure to delete this department?' %}");
+	}
+</script>           
+<table>
+<tr>
+	<td><div id="tree-div" style="overflow:auto; height:300px; width:250px; border:1px solid #c3daf9;"></div></td>		
+	<td valign="top"><div id="detail_data"></div></td>
+</tr>
+</table>
+{% endblock %}
+{% block footer %}
+<center> 
+  <a href="http://www.allweb.com.kh">ALLWEB </a> © 2004-2009 Allweb
+</center>
+{% endblock %}

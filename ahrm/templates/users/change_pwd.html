@@ -1,0 +1,47 @@
+{% extends "master.html" %}
+{% load ahrm_tags %}
+{% load i18n %}
+
+{% block title %}AHRM - Chnage Password{% endblock %}
+
+{% block content %}
+<h4>{% trans 'Change Password' %}</h4>
+<form method="post">
+<table class="ahrmtable">
+   <thead>
+       <th colspan="2" align="left">{% trans 'Change Password' %}</th>
+   </thead>
+   <tr>
+     <td width="40%">&nbsp;</td>
+     <td>&nbsp;</td>
+   </tr>
+   <tr>
+       <td>{% trans 'Old Password' %}:</td>
+       <td>{{a_form.old_password}} {{ a_form.old_password.errors }} </td>
+   </tr>
+   <tr>
+       <td>{% trans 'New Password' %}:</td>
+       <td>{{a_form.new_password1}} {{ a_form.new_password1.errors }}</td>
+   </tr>
+   <tr>
+       <td>{% trans 'New Password(confirm)' %}:</td>
+       <td>{{a_form.new_password2}} {{ a_form.new_password2.errors }}</td>
+   </tr>
+   <tr>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+   </tr>
+</table>
+{% if error_message %}
+    <font color="red"><b>
+       {{ error_message }}
+    </b></font>
+{% endif%}
+
+<br/>
+<input type="submit" value="{% trans 'Submit' %}" name="btn_chg_pwd" /> <input type="reset" value="{% trans 'Reset' %}"/>
+<br/><br/>
+
+{{ a_form.errors }}
+</form>
+{% endblock %}

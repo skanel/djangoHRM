@@ -1,0 +1,71 @@
+{% extends "master.html" %}
+{% load ahrm_tags %}
+{% load i18n %}
+{% block title %}AHRM - Employee{% endblock %}
+
+{% block content %}
+<script type="text/javascript" language="JavaScript">
+    function before_delete(name) {
+        if (confirm('{% trans 'Do you want to delete' %} ' + name + '{% trans ' ?' %}')) {
+            return true;
+        }
+        return false;
+    }
+</script>
+
+	{% if emp_id %}
+		<h4><!-- Employee Information:-->&nbsp;</h4>
+		<div align="center">
+		<table width="70%" class="ahrmtablenormal" border="0"><tr valign="top">
+		<!-- thead><th colspan="2" align="left"><h4>Summary Information</h4></th></thead-->
+		<td width="80%">
+			<table>
+			   <tr>
+				    <td>{% trans 'Name' %}</td>
+				    <td>: <b>{{curr_employee.fname}} {{curr_employee.lname}}</b></td>
+			   </tr>
+			   <tr>
+	                <td>{% trans 'Age' %}</td>
+	                <td>: <b>{{curr_employee.get_age}}</b></td>
+               </tr>
+               <tr>
+                    <td>{% trans 'Nationality' %}</td>
+                    <td>: <b>{{curr_employee.nationality.nationality}}</b></td>
+               </tr>
+               <tr>
+                    <td>{% trans 'Phone' %}</td>
+                    <td>: <b>{{curr_employee.phone}}</b></td>
+               </tr>
+               <tr>
+                    <td>{% trans 'E-mail' %}</td>
+                    <td>: <b>{{curr_employee.mail}}</b></td>
+               </tr>
+			</table>
+		 <td align="right">
+		 	{% if not curr_employee.photo %}
+		 		<img src="/site_media/images/bg.jpg" style="width: 3cm;height: 4cm; border: solid 1px"/>
+		 	{% else %}
+		 		<img src="/site_media/{{curr_employee.photo}}" style="width: 3cm;height: 4cm; border: solid 1px"/>
+		 	{% endif %}  
+		    
+		 </td>
+		</tr>
+		</table>
+		</div>
+		<br/>
+		{% load ahrm_tags %}
+        {% tabs emp_tab tab_id %}
+	{% else %}
+	    <br/>
+	 	<h4>Create Employee</h4>
+	 	{% include 'employees/employee_create_in_dept.html' %}
+	{% endif %}
+	{% if emp_id %}
+		<table width="98%">
+			<tr>
+				<td align="left"><a href="/employee/report/pdf/{{ emp_id }}">{% trans 'Export to PDF' %}</a></td>
+			</tr>
+		</table>
+	{% endif %}
+	<br/><br/>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "master.html" %}
+{% load ahrm_tags %}
+{% load i18n %}
+{% block title %}AHRM - Users List{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript" language="JavaScript">
+        function before_delete(user_name) {
+            if (confirm('{% trans 'Do you want to delete user' %}  ' + user_name + ' ?')) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+    
+<br/>
+<h4>{% trans 'Users list' %}:</h4>
+<table class="ahrmtablelist" border="1">
+                    <thead>
+                        <th>{% trans 'Login' %}</th>
+                        <th>{% trans 'First Name' %}</th>
+                        <th>{% trans 'Last Name' %}</th>
+                        <th>{% trans 'E-mail' %}</th>
+                        <th>{% trans 'Group' %}</th>
+                        <th>{% trans 'Delete' %}</th>
+                    </thead>
+                {% if users %}
+                    {% for user in users %}
+                        <tr>
+                            <td><a href = "/user/detail/{{ user.id }}">{{ user.username }}</td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{ user.last_name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                               {% for key, gr_name in user_groups.items %}
+                                  {% ifequal key user.username %} 
+                                      {{ gr_name }}
+                                   {% endifequal %}
+                               {% endfor %}
+                            </td>
+                            <td align="center">
+                                {%ifnotequal username user.username%}
+                                   <a title="Delete user {{user.username }}" href="/user/delete/{{user.id}}" onclick="return before_delete('{{ user.username }}')"><img src="/site_media/images/delete.gif" border="0"></a>
+                                {%endifnotequal%}
+                            </td>
+                        </tr>   
+                    {% endfor %}
+                {% else %}
+                    <font color = "red"> <br>{% trans 'There no user found.' %} </font>
+                {% endif %}
+            </table>
+            <br/>
+            <form method="post">
+            <input type="Button" value="{% trans 'New User' %}" onclick="process('/user/new')" /><br/><br/>
+            </form>
+{% endblock %}

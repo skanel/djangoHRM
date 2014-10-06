@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block title %}Department {{department.name}}{% endblock %}
+
+{% block content %}
+<h2>Department {{department.name}}</h2>
+<ul>
+  {% for employee in department.employee_set.all %}
+  <li>
+    {{employee.name}} - <a href="/employee/delete/{{employee.id}}">delete</a>
+  </li>
+  {% endfor %}
+</ul>
+<a href="/employee/create_in_dept/{{department.id}}">Create a new employee in this department</a>
+{% endblock %}

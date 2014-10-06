@@ -1,0 +1,284 @@
+[
+    
+    {
+        "pk": 1, 
+        "model": "main.country", 
+        "fields": {
+            "nationality": "Khmer", 
+            "code": "KH", 
+            "name": "Cambodia", 
+            "language": "Khmer"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "main.country", 
+        "fields": {
+            "nationality": "French", 
+            "code": "Fr", 
+            "name": "France", 
+            "language": "French"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "main.country", 
+        "fields": {
+            "nationality": "English", 
+            "code": "Eng", 
+            "name": "England", 
+            "language": "English"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "main.country", 
+        "fields": {
+            "nationality": "Chinese", 
+            "code": "CHN", 
+            "name": "China", 
+            "language": "Chinese"
+        }
+    },    
+    {
+        "pk": 5, 
+        "model": "main.country", 
+        "fields": {
+            "nationality": "Thai", 
+            "code": "THA", 
+            "name": "Thailand", 
+            "language": "Thai"
+        }
+    },
+    {
+        "pk": 6, 
+        "model": "main.country", 
+        "fields": {
+            "nationality": "Vietnamese", 
+            "code": "VN", 
+            "name": "Vietnam", 
+            "language": "Vietnamese"
+        }
+    },
+    {
+        "pk": 7, 
+        "model": "main.country", 
+        "fields": {
+            "nationality": "Japanese", 
+            "code": "JPN", 
+            "name": "Japan", 
+            "language": "Japanese"
+        }
+    },
+    {
+        "pk": 8, 
+        "model": "main.country", 
+        "fields": {
+            "nationality": "Korean", 
+            "code": "KOR", 
+            "name": "Korea", 
+            "language": "Korean"
+        }
+    },
+    {
+        "pk": "M", 
+        "model": "main.gender", 
+        "fields": {
+            "desc": "Male"
+        }
+    }, 
+    {
+        "pk": "F", 
+        "model": "main.gender", 
+        "fields": {
+            "desc": "Female"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "main.maritalstatus", 
+        "fields": {
+            "code": "01", 
+            "desc": "Married"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "main.maritalstatus", 
+        "fields": {
+            "code": "02", 
+            "desc": "Single"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "main.modeltype", 
+        "fields": {
+            "type_code": "01", 
+            "type_desc": "Department"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "main.modeltype", 
+        "fields": {
+            "type_code": "02", 
+            "type_desc": "Division"
+        }
+    },
+    {
+        "pk": 3, 
+        "model": "main.modeltype", 
+        "fields": {
+            "type_code": "03", 
+            "type_desc": "Team"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "admin", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "HR", 
+            "permissions": []
+        }
+    },
+    {
+        "pk": 3, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Manager", 
+            "permissions": []
+        }
+    },
+       {
+        "pk": 1, 
+        "model": "main.company", 
+        "fields": {
+            "city": "Phnom Penh", 
+            "name": "Sample", 
+            "phone2": "023232323", 
+            "country": 1, 
+            "phone1": "012232323", 
+            "zipcode": "855", 
+            "address": "IOC building", 
+            "mail": "info@sample.com", 
+            "desc": "Sample"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "main.department", 
+        "fields": {
+            "type": "01", 
+            "department_father": null, 
+            "company": 1, 
+            "name": "IT Department", 
+            "desc": "IT Department",
+            "order_id" : 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "main.department", 
+        "fields": {
+            "type": "02", 
+            "department_father": 1, 
+            "company": 1, 
+            "name": "Production", 
+            "desc": "Production",
+            "order_id": 2
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "main.department", 
+        "fields": {
+            "type": "02", 
+            "department_father": 1, 
+            "company": 1, 
+            "name": "Development", 
+            "desc": "Development",
+            "order_id":3
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "main.department", 
+        "fields": {
+            "type": "01", 
+            "department_father": null, 
+            "company": 1, 
+            "name": "HR Department", 
+            "desc": "HR Department",
+            "order_id": 4
+            
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "main.employee", 
+        "fields": {
+            "city": "Phnom Penh", 
+            "gender": "M", 
+            "street": "Boeung K\u00e9ng Kong", 
+            "driver_licence": "", 
+            "photo": "images/photo/r1__.JPG", 
+            "company": 1, 
+            "marital_status": 1, 
+            "lname": "Rum", 
+            "phone": "012987207", 
+            "birthday": "1979-09-02", 
+            "fname": "Sokha", 
+            "nationality": 1, 
+            "active": true, 
+            "mail": "rum.sokha@gmail.com", 
+            "date_joined": "2005-05-10", 
+            "zip_code": "855"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "main.position", 
+        "fields": {
+            "company": 1, 
+            "name": "HR", 
+            "description": "Human Resource"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "main.position", 
+        "fields": {
+            "company": 1, 
+            "name": "Consultant", 
+            "description": "Consultant"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "main.position", 
+        "fields": {
+            "company": 1, 
+            "name": "Project Manager", 
+            "description": "Project Manager"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "main.position", 
+        "fields": {
+            "company": 1, 
+            "name": "Developer", 
+            "description": "Developer"
+        }
+    }
+    
+]
